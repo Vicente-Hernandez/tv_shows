@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>TV Shows</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TV SHOWS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="bg-image" style="background-image: url('https://images2.alphacoders.com/946/94682.jpg');
+    height: 100vh;">
+        <div class="container">
+            <div class="col-3"></div>
+            <div class="col-12 m-0 p-5" style="background-color: rgba(0,0,0,0.6); height: fit-content">
+                <h1 class="text-white">
+                    Add a New Show
+                </h1>
+                <div class="container my-3">
+                    <form method="POST" action="/shows/create">
+
+                        {% csrf_token %}
+
+                        <div class="col-10 mb-3">
+                            <label for="exampleInputEmail1" class="form-label text-white">TV SHOW NAME</label>
+                            <input type="text" class="form-control" name="title" required>
+                            <div id="showHelp" class="form-text text-white">Enter tv show name</div>
+                        </div>
+
+                        <div class="col-4 me-5 my-5 d-inline-block">
+                            <label for="exampleInputPassword1" class="form-label text-white">NETWORK</label>
+                            <select type="select" class="form-control" name="network" required>
+                                <option selected>Select the Channel</option>
+                                {% for network in networks %}
+                                <option value={{network.id }} hide>{{ network.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <div id="networkHelp" class="form-text text-white">
+                                Enter network name
+                            </div>
+                        </div>
+
+                        <div class="col-2 d-inline-block"></div>
+
+                        <div class="col-2 ms-5 my-5 d-inline-block">
+                            <label for="exampleInputPassword1" class="form-label text-white">DATE</label>
+                            <input type="date" class="form-control" name="date" required>
+                            <div id="networkHelp" class="form-text text-white">Enter date</div>
+                        </div>
+
+                        <div class="col-10 mb-3">
+                            <label for="exampleInputEmail1" class="form-label text-white">DESCRIPTION</label>
+                            <input type="text" class="form-control" name="description" required>
+                            <div id="showHelp" class="form-text text-white">Enter the tv show description</div>
+                        </div>
+
+                        <div></div>
+                        <button type="submit" class="col-5 my-5 btn btn-lg btn-light">Create</button>
+                    </form>
+                    <a type="button" class="col-4 offset-md-8 btn btn-lg btn-outline-secondary" href="/shows"
+                        role="button">Go Shows</a>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
