@@ -42,7 +42,8 @@
                     <h1 class="text-info d-inline-block">
                         TV SHOW # {{ selected_show.id }}
                     </h1>
-                    <a type="button" class="col-2 offset-md-7 d-inline-block btn btn-outline-light" href="/shows" role="button">Go Shows</a>
+                    <a type="button" class="col-2 offset-md-7 d-inline-block btn btn-outline-light" href="/shows"
+                        role="button">Go Shows</a>
 
                     <div class="my-5 d-block"></div>
 
@@ -84,18 +85,26 @@
                 <div class="my-5 d-block"></div>
 
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <a type="button" class="btn btn-lg btn-outline-secondary far fa-edit" href="/shows/{{ selected_show.id }}/edit"
-                        role="button"></a>
-                    <a type="button" class="btn btn-lg btn-outline-secondary far fa-trash-alt" href="/shows/{{ selected_show.id }}/destroy" role="button"></a>
-                    
+                    <a type="button" class="btn btn-lg btn-outline-secondary far fa-edit"
+                        href="/shows/{{ selected_show.id }}/edit" role="button"></a>
+                    <a type="button" class="btn btn-lg btn-outline-secondary far fa-trash-alt"
+                        href="/shows/{{ selected_show.id }}/destroy" role="button"></a>
+
                 </div>
-                
+
             </div>
         </div>
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+        <script>
+            {% if messages %}
+            {%for message in messages %}
+            alert('{{ message }}')
+            {% endfor %}
+            {% endif %}
+        </script>
 
 </body>
 

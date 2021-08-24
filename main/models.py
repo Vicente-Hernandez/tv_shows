@@ -31,6 +31,8 @@ class ShowsManager(models.Manager):
         
         if len(postData['description']) < 15:
             errors["description"] = "Network description should be at least 15 characters"
+            
+        
         return errors
 
 class Shows(models.Model):

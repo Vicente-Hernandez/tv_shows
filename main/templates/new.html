@@ -48,13 +48,13 @@
 
                         <div class="col-10 mb-3">
                             <label for="exampleInputEmail1" class="form-label text-white">TV SHOW NAME</label>
-                            <input type="text" class="form-control" name="title" required>
+                            <input type="text" class="form-control" name="title">
                             <div id="showHelp" class="form-text text-white">Enter tv show name</div>
                         </div>
 
                         <div class="col-4 me-5 my-5 d-inline-block">
                             <label for="exampleInputPassword1" class="form-label text-white">NETWORK</label>
-                            <select type="select" class="form-control" name="network" required>
+                            <select type="select" class="form-control" name="network">
                                 <option selected>Select the Channel</option>
                                 {% for network in networks %}
                                 <option value={{network.id }} hide>{{ network.name }}</option>
@@ -69,13 +69,13 @@
 
                         <div class="col-2 ms-5 my-5 d-inline-block">
                             <label for="exampleInputPassword1" class="form-label text-white">DATE</label>
-                            <input type="date" class="form-control" name="date" required>
+                            <input type="date" class="form-control" name="date">
                             <div id="networkHelp" class="form-text text-white">Enter date</div>
                         </div>
 
                         <div class="col-10 mb-3">
                             <label for="exampleInputEmail1" class="form-label text-white">DESCRIPTION</label>
-                            <input type="text" class="form-control" name="description" required>
+                            <input type="text" class="form-control" name="description">
                             <div id="showHelp" class="form-text text-white">Enter the tv show description</div>
                         </div>
 
