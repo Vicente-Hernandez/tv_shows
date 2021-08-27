@@ -36,7 +36,7 @@ def create(request):
     print(description)
 
     Shows.objects.create(title=title, network_id=network, date=date, description=description)
-    messages.success(request, f'The show {title} has been created')
+
     
     return redirect('/shows')
 

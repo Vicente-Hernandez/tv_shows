@@ -1,111 +1,63 @@
-<!doctype html>
-<html lang="es">
+{% extends 'base.html' %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block content %}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/5fd70a99c9.js" crossorigin="anonymous"></script>
-    <title>TV Shows</title>
-</head>
+<div class="container">
+    <div class="col-12 m-0 p-5" style="background-color: rgba(0,0,0,0.6); height: fit-content">
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">TV SHOWS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="col-11 p-1">
+            <h1 class="text-info d-inline-block">
+                TV SHOW # {{ selected_show.id }}
+            </h1>
+            <a type="button" class="col-2 offset-md-7 d-inline-block btn btn-outline-light" href="/shows"
+                role="button">Go Shows</a>
+
+            <div class="my-5 d-block"></div>
+
+            <h2 class="text-info d-inline-block">
+                Title:
+            </h2>
+            <h3 class="text-white d-inline-block">
+                {{ selected_show.title }}
+            </h3>
+
+            <div class="my-5 d-block"></div>
+
+            <h2 class="text-info d-inline-block">
+                Network:
+            </h2>
+            <h3 class="text-white d-inline-block">
+                {{ selected_show.network.name }}
+            </h3>
+
+            <div class="my-5 d-block"></div>
+
+            <h2 class="text-info d-inline-block">
+                Release date:
+            </h2>
+            <h3 class="text-white d-inline-block">
+                {{ selected_show.date }}
+            </h3>
+
+            <div class="my-5 d-block"></div>
+
+            <h2 class="text-info">
+                Description:
+            </h2>
+            <h3 class="text-white">
+                {{ selected_show.description }}
+            </h3>
         </div>
-    </nav>
-    <div class="bg-image" style="background-image: url('https://images2.alphacoders.com/946/94682.jpg');
-    height: 100vh;">
-        <div class="container">
-            <div class="col-12 m-0 p-5" style="background-color: rgba(0,0,0,0.6); height: fit-content">
 
-                <div class="col-11 p-1">
-                    <h1 class="text-info d-inline-block">
-                        TV SHOW # {{ selected_show.id }}
-                    </h1>
-                    <a type="button" class="col-2 offset-md-7 d-inline-block btn btn-outline-light" href="/shows"
-                        role="button">Go Shows</a>
+        <div class="my-5 d-block"></div>
 
-                    <div class="my-5 d-block"></div>
-
-                    <h2 class="text-info d-inline-block">
-                        Title:
-                    </h2>
-                    <h3 class="text-white d-inline-block">
-                        {{ selected_show.title }}
-                    </h3>
-
-                    <div class="my-5 d-block"></div>
-
-                    <h2 class="text-info d-inline-block">
-                        Network:
-                    </h2>
-                    <h3 class="text-white d-inline-block">
-                        {{ selected_show.network.name }}
-                    </h3>
-
-                    <div class="my-5 d-block"></div>
-
-                    <h2 class="text-info d-inline-block">
-                        Release date:
-                    </h2>
-                    <h3 class="text-white d-inline-block">
-                        {{ selected_show.date }}
-                    </h3>
-
-                    <div class="my-5 d-block"></div>
-
-                    <h2 class="text-info">
-                        Description:
-                    </h2>
-                    <h3 class="text-white">
-                        {{ selected_show.description }}
-                    </h3>
-                </div>
-
-                <div class="my-5 d-block"></div>
-
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <a type="button" class="btn btn-lg btn-outline-secondary far fa-edit"
-                        href="/shows/{{ selected_show.id }}/edit" role="button"></a>
-                    <a type="button" class="btn btn-lg btn-outline-secondary far fa-trash-alt"
-                        href="/shows/{{ selected_show.id }}/destroy" role="button"></a>
-
-                </div>
-
-            </div>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <a type="button" class="btn btn-lg btn-outline-secondary far fa-edit"
+                href="/shows/{{ selected_show.id }}/edit" role="button"></a>
+            <a type="button" class="btn btn-lg btn-outline-secondary far fa-trash-alt"
+                href="/shows/{{ selected_show.id }}/destroy" role="button"></a>
         </div>
-        <!-- Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-        <script>
-            {% if messages %}
-            {%for message in messages %}
-            alert('{{ message }}')
-            {% endfor %}
-            {% endif %}
-        </script>
+    </div>
+</div>
 
-</body>
-
-</html>
+{% endblock %}
